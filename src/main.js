@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 
 import { Layout, Menu, Icon } from 'antd';
 const { Header, Sider, Content } = Layout;
@@ -24,12 +25,14 @@ class Main extends Component {
 
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1">
-              <Icon type="cloud" />
-              <span>nav 1</span>
+                <Link to='/weather'>
+                  <Icon type="cloud" />
+                  <span>近期天气统计</span>
+                </Link>
             </Menu.Item>
             <Menu.Item key="2">
               <Icon type="table" />
-              <span>nav 2</span>
+              <span>近期天气图表</span>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -43,7 +46,7 @@ class Main extends Component {
             />
           </Header>
           <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 1080 }}>
-            
+            {this.props.children}
           </Content>
         </Layout>
       </Layout>
